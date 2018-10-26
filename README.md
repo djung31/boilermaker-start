@@ -4,22 +4,25 @@
 
 ## Setup:
 
-* Package changes:
+Package changes:
 * `babel` -> `@babel/core`
 * `babel-preset-env` -> `@babel/preset-env`
 * `babel-preset-react` -> `@babel/preset-react`
-* `babel-preset-stage-2` -> See: https://babeljs.io/docs/en/babel-preset-stage-2
+* `babel-preset-stage-2` -> Didn't use. See: https://babeljs.io/docs/en/babel-preset-stage-2
+
+New package:
+* `@babel/polyfill` (allows async/await in client)
 
 ### In the terminal:
 
 * `npm install --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react`
-* `npm install --save @babel/polyfill` (this allows async/await in client)
-* Install desired stage-2 and stage-3 plugins.
-* (I've only needed to use `npm install --save-dev @babel/plugin-proposal-class-properties`)
+* `npm install --save @babel/polyfill`
+* Install desired stage-2 and stage-3 plugins with `npm install --save-dev` as needed.
+* (I think I only needed `@babel/plugin-proposal-class-properties`, for arrow funcs in classes)
 
 ### .babelrc:
 
-* Change presets. (Add plugins as needed).
+* Update presets. (Add plugins as needed).
 
 ```
 {
@@ -36,7 +39,7 @@
 
 ```
 module.exports = {
-  entry: ['@babel/polyfill', './index.js'],
+  entry: ['@babel/polyfill', './path/to/starter/file.js'],
   // rest of file
 }
 ```
